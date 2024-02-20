@@ -3,35 +3,36 @@
 //!  При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
 
 Console.Clear();
-Console.Write("Введите количество строк:");
-int countLine = Convert.ToInt32(Console.ReadLine());
-string[] array = new string[countLine];
-massLine(array);
+Console.Write("Введите количество элементов массива:\t");
+int elementCount = Convert.ToInt32(Console.ReadLine());
+string[] array = new string[elementCount];
+
+enteringСharacters(array);
 Print(array);
 Print2(massResult(array));
 
-void massLine(string[] array)
+void enteringСharacters(string[] array)
 {
-    for (int i = 0; i < countLine; i++)
+    for (int i = 0; i < elementCount; i++)
     {
-        Console.Write("Введите строку №{0}:\r\n    ", i + 1);
+        Console.Write("Введите элемент под №{0}:\r\n    ", i + 1);
         array[i] = Console.ReadLine()!;
     }
 }
 string[] massResult(string[] array)
 {
-    int lenNewArray = 0;
+    int lenghtNewArray = 0;
     for (int i = 0; i <= array.Length -1; i++)
     {
-        if (array[i].Length <= 3) lenNewArray++;
+        if (array[i].Length <= 3) lenghtNewArray++;
     }
-    string[] result = new string[countLine];
+    string[] result = new string[lenghtNewArray];
     int index = 0;
     for (int i = 0; i <= array.Length -1; i++)
     {
         if (array[i].Length <= 3)
         {
-            result[j] = array[i];
+            result[index] = array[i];
             index++;
         }
     }
@@ -49,7 +50,7 @@ void Print(string[] array)
 }
 void Print2(string[] array)
 {
-    Console.WriteLine("Вывод масива длина строк которых меньше либо равна 3: ");
+    Console.WriteLine("Вывод масива с тремя и менне символами:");
     Console.Write("[ ");
     for (int i = 0; i < array.Length; i++)
     {
